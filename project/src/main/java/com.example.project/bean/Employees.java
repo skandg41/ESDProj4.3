@@ -1,6 +1,8 @@
 package com.example.project.bean;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Employees")
@@ -26,8 +28,6 @@ public class Employees {
         this.emp_id = emp_id;
     }
 
-    @Column(name="employee_id")
-    private String employee_id;
     @Column(name="first_name",nullable = false)
     private  String first_name;
     @Column(name="last_name")
@@ -41,9 +41,12 @@ public class Employees {
     @Column(name="photograph_path")
     private String photograph_path;
 
+    @OneToMany(mappedBy = "employees")
+    private List<Employee_Salary> employee_salaries;
+
     public Employees(){}
-    public Employees(String employee_id, String first_name, String last_name, String email,String password, String title, String photograph_path) {
-        this.employee_id = employee_id;
+
+    public Employees(String first_name, String last_name, String email,String password, String title, String photograph_path) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
@@ -58,14 +61,6 @@ public class Employees {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getEmployee_id() {
-        return employee_id;
-    }
-
-    public void setEmployee_id(String employee_id) {
-        this.employee_id = employee_id;
     }
 
     public String getFirst_name() {
@@ -100,6 +95,12 @@ public class Employees {
         this.title = title;
     }
 
+    @JsonbTransient
+    public List<Employee_Salary> getEmployee_salaries() {
+        return employee_salaries;
+    }
 
-
+    public void setEmployee_salaries(List<Employee_Salary> employee_salaries) {
+        this.employee_salaries = employee_salaries;
+    }
 }

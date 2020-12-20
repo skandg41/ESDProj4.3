@@ -1,5 +1,6 @@
 package com.example.project.bean;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 
 @Entity
@@ -13,9 +14,10 @@ public class Employee_Salary {
     @Column(name = "amount", nullable = false)
     private String amount;
     private String description;
-    @OneToOne
-    private Employees employees;
 
+    @ManyToOne
+    @JoinColumn(name = "employee", nullable = false)
+    private Employees employees;
 
     public Employee_Salary() {
     }
@@ -59,7 +61,7 @@ public class Employee_Salary {
         this.description = description;
     }
 
-
+    @JsonbTransient
     public Employees getEmployees() {
         return employees;
     }

@@ -20,12 +20,16 @@ public class EmployeeController {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response loginStudent(Employees employees) throws URISyntaxException {
         System.out.println("Login Request Received");
+        System.out.println(employees.getEmail());
+        System.out.println(employees.getPassword());
         Employees result = employeeService.verifyPassword(employees);
         if(result == null){
             return Response.noContent().build();
         }
 
-        System.out.println("Login Responce "+ result.getEmp_id());
+        System.out.println("Login Response "+ result.getEmp_id());
+        System.out.println(result.getEmail());
+        System.out.println(result.getPassword());
         return Response.ok().entity(result).build();
     }
 

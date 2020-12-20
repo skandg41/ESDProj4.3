@@ -4,6 +4,7 @@ import com.example.project.bean.Employees;
 import com.example.project.utils.SessionUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 public class EmployeeDaoImpl implements EmployeeDao{
@@ -45,5 +46,18 @@ public class EmployeeDaoImpl implements EmployeeDao{
             return null;
         }
         return null;
+    }
+
+    @Override
+    public void registerEmployee(Employees employees) {
+
+        try (Session session = SessionUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.save(employees);
+            transaction.commit();
+
+        } catch (HibernateException exception) {
+            System.out.print(exception.getLocalizedMessage());
+        }
     }
 }
