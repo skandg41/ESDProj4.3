@@ -1,0 +1,31 @@
+.container {
+    max-width: 960px;
+    margin-left: 120px;
+}
+
+.col-md-7 ,.col-lg-8
+{
+    max-width: 500px;
+    margin: auto;
+}
+.w-100,.btn , .btn-primary , .btn-lg
+{
+    max-width: 150px;
+    margin-left: 4cm;
+}
+.row , .g-3
+{
+    margin-left: 1cm;
+}
+
+#viewSalary
+{
+
+    font-family: times, serif;
+    font-size: 14px;
+    border-bottom-right-radius: 20px;
+    /* background-color: #cce4ff; */
+    width: 645px;
+    /* padding: 0 0 115px; */
+    height: 7cm;
+}
