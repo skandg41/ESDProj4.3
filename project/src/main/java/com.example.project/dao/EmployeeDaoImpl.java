@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 public class EmployeeDaoImpl implements EmployeeDao{
-     @Override
+    /* @Override
     public boolean emailVerify(Employees employees) {
         Session session = SessionUtil.getSession();
         try {
@@ -26,28 +26,24 @@ public class EmployeeDaoImpl implements EmployeeDao{
             session.close();
         }
         return false;
-    }
+    }*/
 
     @Override
-    public boolean passwordVerify(Employees employees) {
-        Session session = SessionUtil.getSession();
-        try {
-//
+    public Employees passwordVerify(Employees employees) {
+
+        try (Session session = SessionUtil.getSession()) {
+
             Query query = session.createQuery("from Employees where email=:email and password=:password");
-            System.out.println(employees.getEmail());
-            System.out.println("----------------------");
+            System.out.println("Login Req from "+ employees.getEmail());
             query.setParameter("email", employees.getEmail());
             query.setParameter("password",employees.getPassword());
-            if (query.getResultList().size() == 1) {
-                return true;
+            for (final Object fetch : query.list()) {
+                return (Employees) fetch;
             }
         } catch (HibernateException exception) {
             System.out.print(exception.getLocalizedMessage());
-            return false;
-        } finally {
-            session.close();
+            return null;
         }
-        return false;
-
+        return null;
     }
 }

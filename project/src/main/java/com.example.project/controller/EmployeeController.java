@@ -16,15 +16,17 @@ public class EmployeeController {
     EmployeeService employeeService=new EmployeeService();
     @POST
     @Path("/login")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response loginStudent(Employees employees) throws URISyntaxException {
-        System.out.println("hello");
-        if(employeeService.verifyEmail(employees) && employeeService.verifyPassword(employees)){
-            return Response.ok().build();
-        }else{
-            return Response.status(203).build();
+        System.out.println("Login Request Received");
+        Employees result = employeeService.verifyPassword(employees);
+        if(result == null){
+            return Response.noContent().build();
         }
+
+        System.out.println("Login Responce "+ result.getEmp_id());
+        return Response.ok().entity(result).build();
     }
 
 
