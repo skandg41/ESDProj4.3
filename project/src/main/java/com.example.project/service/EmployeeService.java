@@ -12,4 +12,6 @@ public class EmployeeService {
     public Employees verifyPassword(Employees employees){ return employeeDao.passwordVerify(employees);}
 
     public Employees retriveProfile(Integer emp_id) { return  employeeDao.retriveProfile(emp_id);    }
+
+    public int UpdateProfile(Employees employee) { return employeeDao.updateProfile(employee);    }
 }

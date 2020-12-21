@@ -1,27 +1,46 @@
 let update_profile = document.getElementById("user_profile_form");
-
+let update_photo = document.getElementById("user_profile_image");
 window.onload = fetchempdetails;
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-    'use strict'
 
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
 
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
+update_profile.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (update_profile.checkValidity() === true) {
+        document.getElementById("update_profile").style.display = "none";
+        document.getElementById("spinner-button").style.display = "block";
 
-                form.classList.add('was-validated')
-            }, false)
-        })
-})()
+        let response = await fetch('api/employee/Profile', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                emp_id: sessionStorage.getItem('id'),
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                first_name: document.getElementById('firstName').value,
+                last_name: document.getElementById('lastName').value,
+                title: document.getElementById('designation').value,
+            })
+        });
+
+        try{
+            let result = await response.json();
+            document.getElementById("update_profile").style.display = "block";
+            document.getElementById("spinner-button").style.display = "none";
+            console.log(result);
+            console.log("Update Successful");
+            window.alert("Profile Updated Successfully click ok to continue");
+            location.href = "EditProfile.html";
+        }catch (err){
+            console.log(result);
+            document.getElementById("update_profile").style.display = "block";
+            document.getElementById("spinner-button").style.display = "none";
+        }
+    }
+});
 
 async function fetchempdetails() {
     console.log("fetch_emp_details");
@@ -30,8 +49,6 @@ async function fetchempdetails() {
         location.href = "index.html";
         return;
     }
-    let request = sessionStorage.getItem('id');
-
     console.log("Sending Req");
     let response = await fetch('api/employee/get_details',{
         method: 'POST',
@@ -48,6 +65,7 @@ async function fetchempdetails() {
     document.getElementById("firstName").value = employee['first_name'];
     document.getElementById("lastName").value = employee['last_name'];
     document.getElementById("email").value = employee['email'];
+    document.getElementById("password").value = employee['password'];
     document.getElementById("designation").value = employee['title'];
 
 }

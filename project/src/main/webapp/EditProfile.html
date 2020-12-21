@@ -40,7 +40,7 @@
 <div class="container">
   <main>
     <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4" src="assets/Image/iiitb_logo.jpg"  width="200px" >
+      <img class="d-block mx-auto mb-4" src="assets/Image/iiitb_logo.jpg" alt="Logo" width="200px" >
       <h2>Profile</h2>
       <p class="lead">Please Update your profile if required.</p>
     </div>
@@ -51,18 +51,19 @@
 
         <img src="assets/Image/iiitb_logo.jpg" class="rounded float-start" alt="User_Photo" width="300px" id="user_img">
         <!--<label for="formFile" class="form-label">Change Image</label> -->
-        <form class=
+        <form class="needs-validation" id="user_profile_image" novalidate>
         <input class="form-control" type="file" id="formFile" >
         <button type="submit" id="Upload" class="w-100 btn btn-primary btn-lg">Upload</button>
         <div class="invalid-feedback">
           Please upload a valid jpg or jpeg file only.
         </div>
+        </form>
       </div>
 
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Employee Details</h4>
         <br>
-        <form class="needs-validation" id="user_profile_form" novalidate>
+        <form class="needs-validation" id="user_profile_form" >
           <div class="row g-3">
             <div class="col-sm-6">
               <label for="firstName" class="form-label" >First name</label>
@@ -91,7 +92,16 @@
 
             <div class="col-12">
               <br>
-              <label for="address" class="form-label" >Designation</label>
+              <label for="password" class="form-label">Password </label>
+              <input type="password" hidden class="form-control" id="password" required>
+              <div class="invalid-feedback">
+                Please enter a valid Password.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <br>
+              <label for="designation" class="form-label" >Designation</label>
               <input type="text" class="form-control" id="designation"  required>
               <div class="invalid-feedback">
                 Please enter your Designation.
@@ -99,7 +109,14 @@
             </div>
           <br>
           <br>
-          <!--<button class="w-100 btn btn-primary btn-lg" type="submit" id="update_profile">Save</button>-->
+            <button class="btn btn-lg btn-primary btn-block" id="update_profile" type="submit">
+              Update
+            </button>
+            <button class="btn btn-lg btn-primary btn-block" disabled id="spinner-button" style="display: none;" type="submit">
+              <span aria-hidden="true" class="spinner-border spinner-border-sm" role="status"></span>
+              Updating Profile...
+            </button>
+          <!--<button class="w-100 btn btn-primary btn-lg" type="submit" id="update_profile">Save</button>
             <button class="w-100 btn btn-primary btn-lg" id="update_profile" type="submit">
               Update
             </button>
@@ -107,7 +124,7 @@
               <span aria-hidden="true" class="spinner-border spinner-border-sm" role="status"></span>
               Updating Profile...
             </button>
-            <!--<div class="alert alert-warning" id="login-alert" role="alert" style="display: none; margin-top: 20px">
+            <div class="alert alert-warning" id="login-alert" role="alert" style="display: none; margin-top: 20px">
               Invalid Email Address!!
             </div>-->
           </div>
@@ -127,6 +144,7 @@
 </div>
 
 <script src="assets/js/EditProfile.js"></script>
+<script src="assets/js/Edit-validation.js"></script>
 
 </body>
 </html>

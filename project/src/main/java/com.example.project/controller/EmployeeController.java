@@ -30,6 +30,20 @@ public class EmployeeController {
     }
 
     @POST
+    @Path("/Profile")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateProfile(Employees employee) throws URISyntaxException{
+        System.out.println("Update Profile Req Received");
+        int result = employeeService.UpdateProfile(employee);
+        if(result == 0){
+            return Response.noContent().build();
+        }
+        System.out.println("Update Response "+ employee.getFirst_name()+" Updated Profile");
+        return Response.ok().entity(result).build();
+    }
+
+    @POST
     @Path("/get_details")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

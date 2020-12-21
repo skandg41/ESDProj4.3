@@ -47,6 +47,28 @@ public class EmployeeDaoImpl implements EmployeeDao{
         }
         return null;
     }
+    @Override
+    public int updateProfile(Employees employees){
+        try (Session session = SessionUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+            String hql = "update Employees set first_name=:first_name, last_name=:last_name, email=:email, password=:password, title=:title where emp_id=:emp_id";
+            Query query = session.createQuery(hql);
+            query.setParameter("emp_id",employees.getEmp_id());
+            query.setParameter("first_name", employees.getFirst_name());
+            query.setParameter("last_name",employees.getLast_name());
+            query.setParameter("email",employees.getEmail());
+            query.setParameter("password",employees.getPassword());
+            query.setParameter("title",employees.getTitle());
+            int result = query.executeUpdate();
+            transaction.commit();
+            return result;
+
+        } catch (HibernateException exception) {
+            System.out.print(exception.getLocalizedMessage());
+            return 0;
+        }
+    }
+
 
     @Override
     public Employees retriveProfile(Integer emp_id){

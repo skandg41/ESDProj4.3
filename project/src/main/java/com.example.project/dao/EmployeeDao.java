@@ -8,4 +8,6 @@ public interface EmployeeDao {
     void registerEmployee(Employees employees);
 
     Employees retriveProfile(Integer emp_id);
+
+    int updateProfile(Employees employee);
 }
