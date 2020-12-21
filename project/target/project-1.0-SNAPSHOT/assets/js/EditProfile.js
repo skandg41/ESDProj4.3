@@ -3,7 +3,7 @@ let update_profile = document.getElementById("user_profile_form");
 window.onload = fetchempdetails;
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
-/*(function () {
+(function () {
     'use strict'
 
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -22,7 +22,7 @@ window.onload = fetchempdetails;
             }, false)
         })
 })()
-*/
+
 async function fetchempdetails() {
     console.log("fetch_emp_details");
     console.log(sessionStorage.getItem(('id')));

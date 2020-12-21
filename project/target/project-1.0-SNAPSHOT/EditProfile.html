@@ -50,7 +50,12 @@
       <div class="mb-3">
         <img src="assets/Image/iiitb_logo.jpg" class="rounded float-start" alt="User_Photo" width="300px" id="user_img">
         <!--<label for="formFile" class="form-label">Change Image</label> -->
-        <input class="form-control" type="file" id="formFile" >
+        <!--<input class="form-control" type="file" id="formFile" -->
+        <div class="input-group">
+        <input type="file" class="form-control" id="inputUserPic" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+        <br>
+        <button class="btn btn-outline-secondary" type="submit" id="UploadPic">Upload</button>
+      </div>
         <div class="invalid-feedback">
           Please upload a valid jpg or jpeg file only.
         </div>
