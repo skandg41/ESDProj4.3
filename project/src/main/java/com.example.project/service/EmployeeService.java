@@ -10,4 +10,6 @@ public class EmployeeService {
         return employeeDao.emailVerify(employees);
     }*/
     public Employees verifyPassword(Employees employees){ return employeeDao.passwordVerify(employees);}
+
+    public Employees retriveProfile(Integer emp_id) { return  employeeDao.retriveProfile(emp_id);    }
 }

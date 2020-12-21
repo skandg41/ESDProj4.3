@@ -6,4 +6,6 @@ public interface EmployeeDao {
     //boolean emailVerify(Employees employees);
     Employees passwordVerify(Employees employees);
     void registerEmployee(Employees employees);
+
+    Employees retriveProfile(Integer emp_id);
 }
