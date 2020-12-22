@@ -14,6 +14,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -29,73 +30,122 @@
             }
         }
     </style>
+
+
     <!-- Custom styles for this template -->
-    <link href="assets/css/salary.css" rel="stylesheet">
+    <link href="assets/css/paisa.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
 <div class="container">
     <main>
         <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="assets/Image/iiitb_logo.jpg" alt="" width="200px" >
-            <h2>Employee Salary</h2>
-            <!-- <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p> -->
+            <img class="d-block mx-auto mb-4" src="assets/Image/iiitb_logo.jpg" alt="" width=200px>
+            <h2>View Salary</h2>
+            <p class="lead">Choose Month to view or Download Salary Slip</p>
         </div>
+
+        <form class="align-content-lg-center" id="Choice">
+            <div class="row">
+                <div class="col-sm">
+                    <label >Month :    </label>
+                    <select id="month" itemid="month">
+                        <option value="January">January</option>
+                        <option value="Feburary">Feburary</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                </div>
+                <button class="w-100 btn btn-primary btn-lg button" type="submit">Submit</button>
+            </div>
+        </form>
+        <br>
+        <br>
 
         <div class="row g-3">
+
             <div class="col-md-7 col-lg-8">
-                <div class="row g-3">
-                    <div class="col-sm-6">
-                        <label for="Month" class="form-label">Month :    </label>
-                        <select id="month">
-                            <option value="January">January</option>
-                            <option value="Feburary">Feburary</option>
-                            <option value="March">March</option>
-                            <option value="April">April</option>
-                            <option value="May">May</option>
-                            <option value="June">June</option>
-                            <option value="July">July</option>
-                            <option value="August">August</option>
-                            <option value="September">September</option>
-                            <option value="October">October</option>
-                            <option value="November">November</option>
-                            <option value="December">December</option>
-                        </select>
-                    </div>
+                <h4 class="mb-3">Employee Salary Details</h4>
+                <form class="needs-validation" id="salaryslip" novalidate >
+                    <div class="row g-3" id="viewSalary">
+                        <div class="col-sm-6">
+                            <label for="firstName" class="form-label">First name</label>
+                            <input type="text" class="form-control" id="firstName"  value="" required>
+                            <div class="invalid-feedback">
+                                Valid first name is required.
+                            </div>
+                        </div>
 
-                    <div class="col-sm-6">
-                        <label for="year" class="form-label">Year</label>
-                        <select id="year">
-                            <option value="2008">2008</option>
-                            <option value="2009">2009</option>
-                            <option value="2010">2010</option>
-                            <option value="2011">2011</option>
-                            <option value="2012">2012</option>
-                            <option value="2013">2013</option>
-                            <option value="2014">2014</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
-                            <option value="2017">2017</option>
-                            <option value="2018">2018</option>
-                            <option value="2019">2019</option>
-                            <option value="2020">2020</option>
-                        </select>
-                        <br>
-                        <br>
-                    </div>
+                        <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Last name</label>
+                            <input type="text" class="form-control" id="lastName" value="" required>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
 
-                    <button class="w-100 btn btn-primary btn-lg" type="submit">Submit</button>
-                    <div class="col-12">
-                        <label for="viewSalary" class="form-label">Display Salary </label>
-                        <textarea type="viewSalary" class="form-control" id="viewSalary" ></textarea>
+
+                        <div class="col-12">
+                            <label for="email" class="form-label">Email </label>
+                            <input type="email" class="form-control" id="email" >
+                            <div class="invalid-feedback">
+                                Please enter a valid email address for shipping updates.
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title"  required>
+                            <div class="invalid-feedback">
+                                Please enter your title.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="amount" class="form-label">Amount</label>
+                            <input type="text" class="form-control" id="amount" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Valid Amount exists.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="paydate" class="form-label">PayDate</label>
+                            <input type="text" class="form-control" id="paydate" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Paydate required
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="description" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="description" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Description .
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-                <br>
-                <br>
-                <button class="w-100 btn btn-primary btn-lg" type="submit">Download</button>
-                <!-- </form> -->
+                    <br>
+                    <button class="w-100 btn btn-primary btn-lg" type="submit" id="abc">Download</button>
+                </form>
             </div>
         </div>
+
+        <!-- <script>
+            document.getElementById("btn").addEventListener("click", function() {
+                    var text = document.getElementById("firstname").value;
+                    html2pdf(text);
+                },false);
+        </script> -->
     </main>
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
@@ -108,9 +158,11 @@
     </footer>
 </div>
 
-<!--
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-      <script src="form-validation.js"></script> -->
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/Edit-validation.js"></script>
+<script src="assets/js/Salary.js"></script>
+<script src="assets/js/html2pdf.bundle.min.js"></script>
+
 </body>
 </html>
