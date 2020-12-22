@@ -1,6 +1,13 @@
 let update_profile = document.getElementById("user_profile_form");
+let update_photo = document.getElementById("user_profile_image");
 
 window.onload = fetchempdetails;
+//window.onload = retriveImage;
+
+
+update_photo.addEventListener('submit',async (e) => {
+
+})
 
 update_profile.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -65,5 +72,22 @@ async function fetchempdetails() {
     document.getElementById("email").value = employee['email'];
     document.getElementById("password").value = employee['password'];
     document.getElementById("designation").value = employee['title'];
+}
 
+async function retriveImage(){
+    if (!sessionStorage.getItem('id')) {
+        location.href = "index.html";
+        return;
+    }
+    console.log("Sending Req");
+    let response = await fetch('api/employee/retriveImage',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            emp_id: sessionStorage.getItem('id')
+        })
+    });
+    console.log("Responce Received");
 }

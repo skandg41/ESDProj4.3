@@ -2,10 +2,15 @@ package com.example.project.dao;
 
 import com.example.project.bean.Employees;
 import com.example.project.utils.SessionUtil;
+import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
+import java.io.*;
 
 public class EmployeeDaoImpl implements EmployeeDao{
     /* @Override
@@ -69,7 +74,37 @@ public class EmployeeDaoImpl implements EmployeeDao{
         }
     }
 
+    @Override
+    public int updateProfilePicPath(String name){
+        return 1;
+    }
 
+    @Override
+    public int uploadProfilePic(InputStream fileInputStream, FormDataContentDisposition fileMetaData){
+        String UPLOAD_PATH = "/media/skand/New Volume/IIITB/Term 1 20-21/SS/Part 2/Project/ESDProj4.3/project/src/main/webapp/assets/userImg/";
+        try
+        {
+            String currentDirectory = System.getProperty("user.dir");
+            System.out.println("The current working directory is " + currentDirectory);
+
+            int read = 0;
+            byte[] bytes = new byte[4096];
+            System.out.println("File Upload at location "+ UPLOAD_PATH + fileMetaData.getFileName());
+            OutputStream out = new FileOutputStream(new File(UPLOAD_PATH + fileMetaData.getFileName()));
+            while ((read = fileInputStream.read(bytes)) != -1)
+            {
+                out.write(bytes, 0, read);
+            }
+            out.flush();
+            out.close();
+        } catch (IOException e)
+        {
+            System.out.println("Exception at Dao");
+            System.out.println(e);
+            throw new WebApplicationException("Error while uploading file. Please try again !!");
+        }
+        return 1;
+    }
     @Override
     public Employees retriveProfile(Integer emp_id){
         try (Session session = SessionUtil.getSession()) {
