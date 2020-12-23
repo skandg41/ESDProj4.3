@@ -1,0 +1,14 @@
+.container {
+    max-width: 960px;
+}
+
+.col-md-7 ,.col-lg-8
+{
+    max-width: 500px;
+    margin: auto;
+}
+.w-100,.btn , .btn-primary , .btn-lg
+{
+    max-width: 150px;
+    margin-left: 4cm;
+}

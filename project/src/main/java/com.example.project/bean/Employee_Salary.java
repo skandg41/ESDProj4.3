@@ -29,6 +29,14 @@ public class Employee_Salary {
         this.description = description;
     }
 
+    public Employee_Salary(String id, String payment_date, String amount, String description, Employees employees) {
+        this.id = id;
+        this.payment_date = payment_date;
+        this.amount = amount;
+        this.description = description;
+        this.employees = employees;
+    }
+
     public String getId() {
         return id;
     }

@@ -1,0 +1,18 @@
+
+.data {
+    margin: auto;
+    max-width: 500px;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: medium;
+    text-align: justify;
+
+}
+.container {
+    margin-top: 1cm;
+    max-width: 800px
+
+}
+.nav, .nav-pills ,.nav-justified{
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: medium;
+}
