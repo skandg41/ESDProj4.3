@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e1afbc71-ebe4-43ae-b76f-4336498743d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/project/src/main/webapp/assets/userImg/MT2020029.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com.example.project/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com.example.project/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com.example.project/dao/EmployeeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com.example.project/dao/EmployeeDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com.example.project/dao/EmployeeDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com.example.project/dao/EmployeeDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com.example.project/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/com.example.project/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/java/com.example.project/utils/JsonHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/webapp/EditProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/webapp/EditProfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/webapp/assets/js/EditProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/webapp/assets/js/EditProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/webapp/assets/js/Salary.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/webapp/assets/js/Salary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/main/webapp/salary.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/webapp/salary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/classes/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/EditProfile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/Home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/WEB-INF/classes/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/Image/iiitb_logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/css/Edit-validation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/css/EditProfile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/css/Home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/css/bootstrap1.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/css/form-validation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/css/paisa.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/css/salary.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/css/signin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/js/Edit-validation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/js/EditProfile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/js/Salary.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/js/form-validation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/js/html2pdf.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/js/login-validation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/svg/bootstrap-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/assets/userImg/MT2020029.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/dashboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/project-1.0-SNAPSHOT/salary.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1m6CH8DTVB9bK8hDMqVcuPh41BK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/project" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e1afbc71-ebe4-43ae-b76f-4336498743d1" name="Default Changelist" comment="" />
+      <created>1608804563876</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608804563876</updated>
+      <workItem from="1608804572372" duration="47000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -1,4 +1,40 @@
+let getPDF = document.getElementById("salaryslip");
 window.onload = fetchempdetails;
+
+getPDF.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (update_profile.checkValidity() === true) {
+        document.getElementById("update_profile").style.display = "none";
+        document.getElementById("spinner-button").style.display = "block";
+
+        let doc = new jsPDF();
+        let elementHTML = $('#salarybody').html();
+        let specialElementHandlers = {
+            '#elementH': function (element, renderer) {
+                return true;
+            }
+        };
+        doc.fromHTML(elementHTML, 15, 15, {
+            'width': 170,
+            'elementHandlers': specialElementHandlers
+        });
+
+// Save the PDF
+        doc.save('sample-document.pdf');
+
+        try{
+            let result = await response.json();
+            document.getElementById("update_profile").style.display = "block";
+            document.getElementById("spinner-button").style.display = "none";
+            location.href = "EditProfile.html";
+        }catch (err){
+            console.log(result);
+            document.getElementById("update_profile").style.display = "block";
+            document.getElementById("spinner-button").style.display = "none";
+        }
+    }
+});
 
 async function fetchempdetails() {
     console.log("fetch_emp_details");

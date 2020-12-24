@@ -8,9 +8,6 @@
   <meta name="generator" content="Hugo 0.79.0">
   <title>Checkout example · Bootstrap v5.0</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
-
-
 
   <!-- Bootstrap core CSS -->
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -49,11 +46,11 @@
 
       <div class="mb-3">
 
-        <img src="/home/skand/Documents/MT2020029.jpeg" class="rounded float-start" alt="User_Photo" width="300px" id="user_img">
+        <img src=""  class="rounded float-start" alt="User_Photo" width="300px" id="user_img">
         <!--<label for="formFile" class="form-label">Change Image</label> -->
-        <form class="needs-validation" id="user_profile_image" action="api/employee/uploadImage" method="post" enctype="multipart/form-data" novalidate>
+        <form class="needs-validation" id="user_profile_image" novalidate>
         <input class="form-control" type="file" name="file" size="50" accept="image/jpeg" id="formFile" >
-        <button type="submit" id="Upload" class="w-100 btn btn-primary btn-lg">Upload</button>
+        <button type="submit" id="Upload" class="w-100 btn btn-primary btn-lg" onclick="imageUpload()">Upload</button>
         </form>
       </div>
 
@@ -113,17 +110,6 @@
               <span aria-hidden="true" class="spinner-border spinner-border-sm" role="status"></span>
               Updating Profile...
             </button>
-          <!--<button class="w-100 btn btn-primary btn-lg" type="submit" id="update_profile">Save</button>
-            <button class="w-100 btn btn-primary btn-lg" id="update_profile" type="submit">
-              Update
-            </button>
-            <button class="w-100 btn btn-primary btn-lg" disabled id="spinner-button" style="display: none;" type="submit">
-              <span aria-hidden="true" class="spinner-border spinner-border-sm" role="status"></span>
-              Updating Profile...
-            </button>
-            <div class="alert alert-warning" id="login-alert" role="alert" style="display: none; margin-top: 20px">
-              Invalid Email Address!!
-            </div>-->
           </div>
         </form>
       </div>

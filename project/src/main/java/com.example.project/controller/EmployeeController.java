@@ -4,8 +4,8 @@ import com.example.project.bean.Employees;
 import com.example.project.service.EmployeeService;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
-import org.hibernate.annotations.SQLUpdate;
 
+import javax.activation.MimetypesFileTypeMap;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -51,13 +51,13 @@ public class EmployeeController {
     @Path("/uploadImage")
     @Consumes({MediaType.MULTIPART_FORM_DATA})
     public Response uploadImage(  @FormDataParam("file") InputStream fileInputStream,
-                                    @FormDataParam("file") FormDataContentDisposition fileMetaData) throws Exception {
-        System.out.println("File Upload Initiated at Controller");
+                                    @FormDataParam("file") FormDataContentDisposition fileMetaData, @FormDataParam("emp_id") Integer emp_id) throws Exception {
+        System.out.println("File Upload Initiated at Controller for emp "+ emp_id);
 
         String currentDirectory = System.getProperty("user.dir");
         System.out.println("The current working directory is " + currentDirectory);
 
-        int result = employeeService.uploadProfilePic(fileInputStream, fileMetaData);
+        int result = employeeService.uploadProfilePic(fileInputStream, fileMetaData, emp_id);
         if (result == 0) {
             System.out.println("File Upload Failed");
             return Response.noContent().build();
@@ -65,20 +65,56 @@ public class EmployeeController {
         System.out.println("File Upload Response OK ");
         return Response.ok().build();
     }
+  /*  @GET
+    @Path("/retriveImage")
+    public Response getImage() {
+        File f = new File("/home/Document/MT2020029.jpeg");
 
+        if (!f.exists()) {
+            throw new WebApplicationException(404);
+        }
+
+        String mt = new MimetypesFileTypeMap().getContentType(f);
+        return Response.ok(f, mt).build();
+    }
     @POST
     @Path("/retriveImage")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces({MediaType.MULTIPART_FORM_DATA})
-    public Response retriveImage(){
+    @Produces("image/jpeg")
+    //@Produces({MediaType.MULTIPART_FORM_DATA})
+    public Response retriveImage(Employees employees){
         System.out.println("Image fetch req received");
+        String path = employeeService.getPhotoPath(employees).getPhotograph_path();
+        System.out.println("Photograph at "+path);
+        File file = new File(path);
+        String filename = file.getName();
+        System.out.println("FileName is "+ filename);
+        return Response.ok().entity(filename).build();
+    }*/
 
+    /*@GET
+    @Path("/dowImage")
+    @Produces("image/*")
+    public Response dowImage(){
         File file = new File("/home/skand/Documents/MT2020029.jpeg");
+        String filename = file.getName();
+        System.out.println("FileName is "+filename);
+        return Response.ok((File) file).header("Content-Disposition", "attachment; filename=/"+filename).build();
+    }*/
 
-        return Response.ok((Object) file).header("Content-Disposition", "attachment; filename=\"MT2020029.jpeg\"").build();
-
+    @GET
+    @Path("/images/{filename}")
+    @Produces("image/*")
+    public Response getImage(@PathParam("filename") String filename) {
+        System.out.println("Fetch image Request Received");
+        String path = "/home/skand/Documents/A-ERPUsers/" + filename;
+        File f = new File(path);
+        if (!f.exists()) {
+            throw new WebApplicationException(404);
+        }
+        String mt = new MimetypesFileTypeMap().getContentType(f);
+        return Response.ok(f, mt).build();
     }
-
 
     @POST
     @Path("/get_details")
@@ -93,6 +129,10 @@ public class EmployeeController {
         System.out.println("Get Response "+ result.getEmp_id());
         System.out.println(result.getEmail());
         System.out.println(result.getPassword());
+        System.out.println(result.getPhotograph_path());
+        File file = new File(result.getPhotograph_path());
+        System.out.println("File Name " + file.getName());
+        result.setPhotograph_path(file.getName());
         return Response.ok().entity(result).build();
     }
 

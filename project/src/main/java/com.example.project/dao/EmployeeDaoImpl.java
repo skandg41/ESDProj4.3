@@ -75,13 +75,27 @@ public class EmployeeDaoImpl implements EmployeeDao{
     }
 
     @Override
-    public int updateProfilePicPath(String name){
-        return 1;
+    public int updateProfilePicPath(String name, Integer emp_id){
+        try (Session session = SessionUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+            System.out.println("Name : "+ name);
+            System.out.println("emp_id " + emp_id);
+            String hql = "update Employees set photograph_path=:name where emp_id=:emp_id";
+            Query query = session.createQuery(hql);
+            query.setParameter("emp_id",emp_id);
+            query.setParameter("name",name);
+            int result = query.executeUpdate();
+            transaction.commit();
+            return result;
+        } catch (HibernateException exception) {
+            System.out.print(exception.getLocalizedMessage());
+            return 0;
+        }
     }
 
     @Override
     public int uploadProfilePic(InputStream fileInputStream, FormDataContentDisposition fileMetaData){
-        String UPLOAD_PATH = "/media/skand/New Volume/IIITB/Term 1 20-21/SS/Part 2/Project/ESDProj4.3/project/src/main/webapp/assets/userImg/";
+        String UPLOAD_PATH = "/home/skand/Documents/A-ERPUsers/";
         try
         {
             String currentDirectory = System.getProperty("user.dir");
@@ -132,5 +146,21 @@ public class EmployeeDaoImpl implements EmployeeDao{
         } catch (HibernateException exception) {
             System.out.print(exception.getLocalizedMessage());
         }
+    }
+
+    @Override
+    public Employees getPhotoPath(Employees employees){
+        try (Session session = SessionUtil.getSession()) {
+
+            Query query = session.createQuery("from Employees where emp_id=:emp_id");
+            query.setParameter("emp_id",employees.getEmp_id());
+            for (final Object fetch : query.list()) {
+                return (Employees) fetch;
+            }
+        } catch (HibernateException exception) {
+            System.out.print(exception.getLocalizedMessage());
+            return null;
+        }
+        return null;
     }
 }

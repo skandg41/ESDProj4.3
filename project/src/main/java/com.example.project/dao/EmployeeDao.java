@@ -17,5 +17,7 @@ public interface EmployeeDao {
 
     int uploadProfilePic(InputStream fileInputStream, FormDataContentDisposition fileMetaData);
 
-    int updateProfilePicPath(String name);
+    int updateProfilePicPath(String name,Integer emp_id);
+
+    Employees getPhotoPath(Employees employees);
 }
