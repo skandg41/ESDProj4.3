@@ -1,6 +1,7 @@
 package com.example.project.bean;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.validation.constraints.Size;
 
 @Embeddable

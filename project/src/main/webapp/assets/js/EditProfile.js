@@ -1,25 +1,39 @@
 let update_profile = document.getElementById("user_profile_form");
-//let update_photo = document.getElementById("user_profile_image");
+let imageUpload = document.getElementById("user_profile_image");
 
 window.onload = fetchempdetails;
 //window.onload = retriveImage;
 
-async function imageUpload() {
-    let form_data = new FormData();
-    form_data.append('file', document.getElementById('formFile').files[0]);
-    form_data.append('emp_id',sessionStorage.getItem('id'));
-    console.log(form_data);
-    let response = await fetch('api/employee/uploadImage', {
-        method: 'POST',
-        body: form_data
-    }).then(response => {
-        console.log("Update Successful");
-        window.alert("Profile Updated Successfully click ok to continue");
-        location.href = "EditProfile.html";
-    }).catch(err => {
-        console.log(err);
-    });
-}
+imageUpload.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (imageUpload.checkValidity() === true) {
+        document.getElementById("upload").style.display = "none";
+        document.getElementById("spinner-button-upload").style.display = "block";
+
+        let form_data = new FormData();
+        form_data.append('file', document.getElementById('formFile').files[0]);
+        form_data.append('emp_id', sessionStorage.getItem('id'));
+        console.log(form_data);
+        let response = await fetch('api/employee/uploadImage', {
+            method: 'POST',
+            body: form_data
+        });
+        try {
+            let res = response.json();
+            document.getElementById("upload").style.display = "block";
+            document.getElementById("spinner-button-upload").style.display = "none";
+
+            console.log("Update Successful");
+            window.alert("Profile Updated Successfully click ok to continue");
+            location.href = "EditProfile.html";
+        } catch (err) {
+            console.log(err);
+            document.getElementById("upload").style.display = "block";
+            document.getElementById("spinner-button-upload").style.display = "none";
+        }
+    }
+});
 
 /*update_photo.addEventListener('submit',async (e) => {
     e.preventDefault();
@@ -186,9 +200,13 @@ async function fetchempdetails() {
     document.getElementById("designation").value = employee['title'];
 
     console.log(employee['photograph_path']);
-    let path = "api/employee/images/" + employee['photograph_path'];
-    document.getElementById("user_img").src = path;
-    console.log("src path set");
+    if(employee['photograph_path'] !== null || employee['photograph_path'] !== "null" )
+    {
+        let path = "api/employee/images/" + employee['photograph_path'];
+        document.getElementById("user_img").src = path;
+        console.log("src path set");
+    }
+
 }
 
 /*async function retriveImage(){

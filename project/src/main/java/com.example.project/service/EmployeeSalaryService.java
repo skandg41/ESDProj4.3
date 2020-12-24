@@ -4,8 +4,6 @@ import com.example.project.bean.Employee_Salary;
 import com.example.project.dao.EmployeeSalaryDao;
 import com.example.project.dao.EmployeeSalaryDaoImpl;
 
-import javax.json.JsonValue;
-
 
 public class EmployeeSalaryService {
 

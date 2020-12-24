@@ -1,10 +1,5 @@
 package com.example.project.utils;
 
-import com.example.project.bean.Employee_Salary;
-import com.example.project.dao.EmployeeSalaryDaoImpl;
-
-import javax.json.JsonObject;
-
 public class TestClass {
     public static void main(String[] args) {
         /*JsonObject job;

@@ -3,9 +3,11 @@ package com.example.project.controller;
 import com.example.project.bean.Employee_Salary;
 import com.example.project.service.EmployeeSalaryService;
 
-
 import javax.json.JsonObject;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URISyntaxException;

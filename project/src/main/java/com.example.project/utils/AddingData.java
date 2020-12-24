@@ -9,6 +9,7 @@ public class AddingData {
     public static void main(String[] args) {
         Employees employees = new Employees("Clark", "Kent", "ck@gmail.com", "12345", "Professor", null);
         EmployeeDao employeeDao = new EmployeeDaoImpl();
+
         employeeDao.registerEmployee(employees);
 
     }

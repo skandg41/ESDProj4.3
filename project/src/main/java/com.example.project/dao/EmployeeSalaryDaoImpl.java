@@ -1,7 +1,6 @@
 package com.example.project.dao;
 
 import com.example.project.bean.Employee_Salary;
-import com.example.project.bean.Employees;
 import com.example.project.utils.SessionUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
