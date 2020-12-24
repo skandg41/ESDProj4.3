@@ -200,13 +200,16 @@ async function fetchempdetails() {
     document.getElementById("designation").value = employee['title'];
 
     console.log(employee['photograph_path']);
-    if(employee['photograph_path'] !== null || employee['photograph_path'] !== "null" )
+
+    if(employee['photograph_path'] != null || employee['photograph_path'] != "null" )
     {
         let path = "api/employee/images/" + employee['photograph_path'];
         document.getElementById("user_img").src = path;
         console.log("src path set");
     }
-
+    else {
+        document.getElementById("user_img").src = 'assets/Image/Avatar.jpg';
+    }
 }
 
 /*async function retriveImage(){

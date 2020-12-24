@@ -131,9 +131,13 @@ public class EmployeeController {
         System.out.println(result.getEmail());
         System.out.println(result.getPassword());
         System.out.println(result.getPhotograph_path());
-        File file = new File(result.getPhotograph_path());
-        System.out.println("File Name " + file.getName());
-        result.setPhotograph_path(file.getName());
+        if( result.getPhotograph_path() != null)
+        {
+            File file = new File(result.getPhotograph_path());
+            System.out.println("File Name " + file.getName());
+            result.setPhotograph_path(file.getName());
+        }
+        else result.setPhotograph_path("null");
         return Response.ok().entity(result).build();
     }
 
